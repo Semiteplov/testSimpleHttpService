@@ -95,9 +95,9 @@ public class SimpleTest extends RestAssuredConfig {
             int size2 = db2.getSize();
 
             // compare data buffer objects
-            if(size1 == size2) {
-                for(int i = 0; i < size1; i++) {
-                    if(db1.getElem(i) != db2.getElem(i)) {
+            if (size1 == size2) {
+                for (int i = 0; i < size1; i++) {
+                    if (db1.getElem(i) != db2.getElem(i)) {
                         return false;
                     }
                 }

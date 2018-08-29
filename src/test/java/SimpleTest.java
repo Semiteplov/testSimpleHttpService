@@ -28,29 +28,29 @@ public class SimpleTest extends RestAssuredConfig {
     @Test
     public void getDelayWithBigValue() {
         REQUEST.when().
-                get("/delay/150").
+                    get("/delay/150").
                 then().
-                statusCode(200).
-                time(lessThan(12L), TimeUnit.SECONDS).
-                time(greaterThanOrEqualTo(10L), TimeUnit.SECONDS);
+                    statusCode(200).
+                    time(lessThan(12L), TimeUnit.SECONDS).
+                    time(greaterThanOrEqualTo(10L), TimeUnit.SECONDS);
     }
 
     @Test
     public void getDelayWithSmallValue() {
         REQUEST.when().
-                get("/delay/-32").
+                    get("/delay/-32").
                 then().
-                statusCode(200).
-                time(lessThan(2L), TimeUnit.SECONDS).
-                time(greaterThanOrEqualTo(1L), TimeUnit.SECONDS);
+                    statusCode(200).
+                    time(lessThan(2L), TimeUnit.SECONDS).
+                    time(greaterThanOrEqualTo(1L), TimeUnit.SECONDS);
     }
 
     @Test
     public void getDelayWithInvalidValue() {
         REQUEST.when().
-                get("/delay/test").
+                    get("/delay/test").
                 then().
-                statusCode(500);
+                    statusCode(500);
     }
 
     @Test
@@ -85,7 +85,7 @@ public class SimpleTest extends RestAssuredConfig {
 
     public static boolean compareImages(File file1, File file2) {
         try {
-            // take buffer data from botm image files
+            // take buffer data
             BufferedImage bi1 = ImageIO.read(file1);
             DataBuffer db1 = bi1.getData().getDataBuffer();
             int size1 = db1.getSize();
@@ -94,7 +94,7 @@ public class SimpleTest extends RestAssuredConfig {
             DataBuffer db2 = bi2.getData().getDataBuffer();
             int size2 = db2.getSize();
 
-            // compare data-buffer objects
+            // compare data buffer objects
             if(size1 == size2) {
                 for(int i = 0; i < size1; i++) {
                     if(db1.getElem(i) != db2.getElem(i)) {

@@ -102,8 +102,7 @@ public class SimpleTest extends RestAssuredConfig {
                     }
                 }
                 return true;
-            }
-            else
+            } else
                 return false;
         } catch (Exception e) {
             System.out.println("Failed to compare image");
